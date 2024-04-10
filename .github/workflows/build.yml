@@ -6,6 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
     - uses: actions/checkout@v2
 
@@ -18,8 +21,4 @@ jobs:
       run: |
         pandoc --from=markdown --to=latex --template=template.latex --output=whitepaper.pdf paper.md
 
-    - name: Upload PDF
-      uses: actions/upload-artifact@v2
-      with:
-        name: whitepaper
-        path: whitepaper.pdf
+    - uses: stefanzweifel/git-auto-commit-action@v5
