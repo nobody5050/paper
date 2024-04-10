@@ -16,12 +16,7 @@ jobs:
 
     - name: Build paper
       run: |
-        pandoc \
-    --from=markdown \
-    --to=latex \
-    --template=template.latex \
-    --output=whitepaper.pdf \
-    paper.md
+        pandoc --from=markdown --to=latex --template=template.latex --output=whitepaper.pdf paper.md
 
     - name: Upload PDF
       uses: actions/upload-artifact@v2
